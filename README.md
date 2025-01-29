@@ -84,7 +84,7 @@ Define los siguientes atributos privados:
 ## Notas Importantes
 - El script maneja posibles errores de tipo y valores incorrectos mediante validaciones en los setters.
 - Se utilizan expresiones regulares para extraer el punto de encuentro de la descripción.
-- Las URLs de las imágenes se seleccionan correctamente tomando la variante de mayor ancho disponible.
+- Las URLs de las imágenes se seleccionan tomando la variante de mayor ancho disponible.
 
 ---
 
@@ -104,7 +104,7 @@ FROM products
 WHERE short_code != "X12345";
 ```
 
-La consulta selecciona las columnas solicitadas de la tabla `products`, filtrando los registros donde el campo `short_code` sea distinto de "X12345". La condición `!=` es adecuada para esta comparación.
+La consulta selecciona las columnas solicitadas de la tabla `products`, filtrando los registros donde el campo `short_code` sea distinto de "X12345" con la condición `!=`.
 
 ---
 
@@ -134,7 +134,7 @@ WHERE reviews_average_rating BETWEEN 4.0 AND 4.5
 AND id IN (SELECT product_id FROM product_option WHERE name = 'Adult');
 ```
 
-La consulta  `(SELECT product_id FROM product_option WHERE name = 'Adult')` obtiene los `product_id` correspondientes, y la condición `id IN (...)` garantiza que solo se seleccionen productos asociados a esas opciones. El uso de `DISTINCT` elimina valores repetidos de `duration`. La condición `BETWEEN 4.0 AND 4.5` filtra correctamente el rango de puntuaciones.
+La consulta  `(SELECT product_id FROM product_option WHERE name = 'Adult')` obtiene los `product_id` correspondientes, y la condición `id IN (...)` garantiza que solo se seleccionen productos asociados a esas opciones. El uso de `DISTINCT` elimina valores repetidos de `duration`. La condición `BETWEEN 4.0 AND 4.5` filtra el rango de puntuaciones.
 
 ---
 
@@ -148,7 +148,7 @@ FROM products
 GROUP BY supplier_id;
 ```
 
-La consulta utiliza la función de agregación `MAX(fetched_at)` para obtener la última fecha de actualización por proveedor. La clausula `GROUP BY supplier_id` agrupa los resultados por cada `supplier_id`, devolviendo una única fila por proveedor con su correspondiente fecha más reciente.
+La consulta utiliza la función de agregación `MAX(fetched_at)` para obtener la última fecha de actualización por proveedor. La clausula `GROUP BY supplier_id` agrupa los resultados por cada `supplier_id`, devolviendo una única fila por proveedor con su fecha más reciente.
 
 ---
 
@@ -162,7 +162,7 @@ Las consultas fueron probadas en una base de datos real creada localmente.
 
 ## Introducción
 
-Este proyecto consiste en una aplicación web sencilla desarrollada con **Vite + React + JavaScript**, que consume un API REST y muestra un listado de hoteles en una interfaz amigable. Para el diseño de la interfaz se utilizó **Tailwind CSS**, lo que permitió un desarrollo rápido y limpio.
+Este proyecto consiste en una aplicación web sencilla desarrollada con **Vite + React + JavaScript**, que consume un API REST y muestra un listado de hoteles. Para el diseño de la interfaz se utilizó **Tailwind CSS**, lo que permitió un desarrollo rápido y limpio.
 
 ---
 
@@ -205,7 +205,6 @@ Este componente principal se encarga de:
 - Guardar el listado de hoteles en el estado local.
 - Renderizar una lista de componentes `HotelCard`, pasando las props necesarias para mostrar cada hotel.
 
-#### Código relevante:
 
 ```javascript
 componentDidMount() {
@@ -238,7 +237,6 @@ Este componente es responsable de mostrar la información de cada hotel de acuer
 - `amenities`: Lista de servicios.
 - `image`: Imagen del hotel.
 
-#### Código relevante:
 
 ```javascript
 <div className="flex flex-row justify-between items-center mb-1">
@@ -257,6 +255,6 @@ Este componente es responsable de mostrar la información de cada hotel de acuer
 ))}
 
 {amenities.map((amenity) => (
-  <div>\u00b7 {amenity.name}</div>
+  <div>· {amenity.name}</div>
 ))}
 ```
