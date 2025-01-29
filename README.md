@@ -104,7 +104,7 @@ FROM products
 WHERE short_code != "X12345";
 ```
 
-La consulta es correcta selecciona las columnas solicitadas de la tabla `products`, filtrando los registros donde el campo `short_code` sea distinto de "X12345". La condición `!=` es adecuada para esta comparación.
+La consulta selecciona las columnas solicitadas de la tabla `products`, filtrando los registros donde el campo `short_code` sea distinto de "X12345". La condición `!=` es adecuada para esta comparación.
 
 ---
 
