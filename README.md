@@ -205,25 +205,6 @@ Este componente principal se encarga de:
 - Guardar el listado de hoteles en el estado local.
 - Renderizar una lista de componentes `HotelCard`, pasando las props necesarias para mostrar cada hotel.
 
-
-```javascript
-componentDidMount() {
-  this.fetchHotels();
-}
-
-async fetchHotels() {
-  try {
-    const { data } = await axios.get(
-      "https://wmw3lg8sha.execute-api.us-east-2.amazonaws.com/dev/dummy"
-    );
-    const hotels = data.data.hotels;
-    this.setState({ hotels: hotels });
-  } catch (error) {
-    console.log(error);
-  }
-}
-```
-
 ### 2. **HotelCard.jsx**
 
 Este componente es responsable de mostrar la información de cada hotel de acuerdo a la estructura solicitada en la consigna.
@@ -236,25 +217,6 @@ Este componente es responsable de mostrar la información de cada hotel de acuer
 - `boardbases`: Tipos de bases de alimentación.
 - `amenities`: Lista de servicios.
 - `image`: Imagen del hotel.
-
-
-```javascript
-<div className="flex flex-row justify-between items-center mb-1">
-  <div className="text-3xl text-[#003b95] font-[700]">{name}</div>
-  <div className="bg-[#003b95] rounded-[10px] p-2">
-    {"⭐".repeat(stars)}
-  </div>
-</div>
-```
-
+####
+  
 - Se utiliza el método `map` para listar las `boardbases` y `amenities` del hotel.
-
-```javascript
-{boardbases.map((boardbase) => (
-  <div className="text-xl">{boardbase}</div>
-))}
-
-{amenities.map((amenity) => (
-  <div>· {amenity.name}</div>
-))}
-```
