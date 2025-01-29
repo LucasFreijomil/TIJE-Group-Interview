@@ -7,10 +7,6 @@ class App extends Component {
     hotels: [],
   };
 
-  componentDidMount() {
-    this.fetchHotels();
-  }
-
   async fetchHotels() {
     try {
       const { data } = await axios.get(
@@ -23,6 +19,11 @@ class App extends Component {
       console.log(error);
     }
   }
+
+  componentDidMount() {
+    this.fetchHotels();
+  }
+  
   render() {
     return (
       <div className="flex flex-col justify-center items-center my-10">
