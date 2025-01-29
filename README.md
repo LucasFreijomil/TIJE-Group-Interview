@@ -64,7 +64,7 @@ Define los siguientes atributos privados:
 
 ---
 
-## Salida esperada con el json presente en el proyecto
+## Salida esperada con el JSON presente en el proyecto
 ```json
 {
  "averageRating": 4.17,
